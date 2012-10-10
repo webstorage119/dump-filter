@@ -12,8 +12,8 @@ class CDump;
 class CDumpFilter;
 
 #define BYTES_PER_LINE 20
-#define FIRST_HALF_LINE TEXT  ("   %2x %2x %2x %2x %2x %2x %2x %2x %2x %2x")
-#define SECOND_HALF_LINE TEXT (" %2x %2x %2x %2x %2x %2x %2x %2x %2x %2x")
+#define FIRST_HALF_LINE TEXT  ("   %02X %02X %02X %02X %02X %02X %02X %02X %02X %02X")
+#define SECOND_HALF_LINE TEXT (" %02X %02X %02X %02X %02X %02X %02X %02X %02X %02X")
 
 
 // Main filter object

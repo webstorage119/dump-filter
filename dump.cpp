@@ -343,10 +343,10 @@ HRESULT CDumpInputPin::WriteStringInfo(IMediaSample *pSample)
     HRESULT hr = StringCchPrintf(FileString,256,TEXT("\r\nRenderer received sample (%dms)\0"),timeGetTime());
     m_pDump->WriteString(FileString);
 
-    hr = StringCchPrintf(FileString,256,TEXT("   Start time (%s)\0"),(LPCTSTR)CDisp(tStart));
+    hr = StringCchPrintf(FileString,256,TEXT("   Start time (%s)\0"),(LPCTSTR)CDisp(tStart, CDISP_DEC));
     m_pDump->WriteString(FileString);
 
-    hr = StringCchPrintf(FileString,256,TEXT("   End time (%s)\0"),(LPCTSTR)CDisp(tStop));
+    hr = StringCchPrintf(FileString,256,TEXT("   End time (%s)\0"),(LPCTSTR)CDisp(tStop, CDISP_DEC));
     m_pDump->WriteString(FileString);
 
     // Display the media times for this sample
@@ -354,9 +354,9 @@ HRESULT CDumpInputPin::WriteStringInfo(IMediaSample *pSample)
     hr = pSample->GetMediaTime(&tStart, &tStop);
     if (hr == NOERROR) 
     {
-        hr = StringCchPrintf(FileString,256,TEXT("   Start media time (%s)\0"),(LPCTSTR)CDisp(tStart));
+        hr = StringCchPrintf(FileString,256,TEXT("   Start media time (%s)\0"),(LPCTSTR)CDisp(tStart, CDISP_DEC));
         m_pDump->WriteString(FileString);
-        hr = StringCchPrintf(FileString,256,TEXT("   End media time (%s)\0"),(LPCTSTR)CDisp(tStop));
+        hr = StringCchPrintf(FileString,256,TEXT("   End media time (%s)\0"),(LPCTSTR)CDisp(tStop, CDISP_DEC));
         m_pDump->WriteString(FileString);
     }
 
