@@ -784,7 +784,7 @@ void CDump::WriteString(TCHAR *pString)
 
     BOOL bSuccess;
     DWORD dwWritten = 0;
-    DWORD dwToWrite = lstrlen(pString);
+    DWORD dwToWrite = lstrlen(pString) * sizeof(TCHAR);
 
     // Write the requested data to the dump file
     bSuccess = WriteFile((HANDLE) m_hFile,
@@ -796,7 +796,7 @@ void CDump::WriteString(TCHAR *pString)
         // Append a carriage-return and newline to the file
         const TCHAR *pEndOfLine = TEXT("\r\n\0");
         dwWritten = 0;
-        dwToWrite = lstrlen(pEndOfLine);
+        dwToWrite = lstrlen(pEndOfLine) * sizeof(TCHAR);
 
         bSuccess = WriteFile((HANDLE) m_hFile,
             (PVOID) pEndOfLine, (DWORD) dwToWrite,
