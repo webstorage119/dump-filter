@@ -316,7 +316,7 @@ STDMETHODIMP CDumpInputPin::Receive(IMediaSample *pSample)
         return hr;
     }
 
-    return m_pDump->Write(pbData, pSample->GetActualDataLength());
+    WriteStringInfo(pSample);
 }
 
 
